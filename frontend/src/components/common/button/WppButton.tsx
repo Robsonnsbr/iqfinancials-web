@@ -55,7 +55,7 @@ const WppButton = () => {
         accountName="Robson"
         phoneNumber="5541995398003"
         avatar={avatar.src}
-        chatMessage="Olá! 🤝 Como podemos ajudar?"
+        chatMessage="Olá, tudo bem? Me chamo Robson e sou um dos consultores da IQFinancials. Como posso lhe ajudar hoje?"
         statusMessage="Normalmente responde dentro de 1 hora"
       />
     </div>
