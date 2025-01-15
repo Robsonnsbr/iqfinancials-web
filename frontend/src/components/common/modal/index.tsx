@@ -25,6 +25,7 @@ export default function Modal({
       <div className="bg-white rounded-md shadow-md w-full max-w-md p-6 relative">
         <button
           id="close-button"
+          title="Fechar Modal"
           aria-label="close modal"
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
@@ -41,6 +42,7 @@ export default function Modal({
           <div className="flex justify-center gap-4">
             <button
               id="confirm-button"
+              title="Confirmar"
               aria-label="confirm button"
               onClick={onConfirm}
               className="px-4 py-2 bg-blue text-white active:text-red active:scale-95 font-semibold rounded-md hover:bg-blue-light"
@@ -49,6 +51,7 @@ export default function Modal({
             </button>
             <button
               id="cancel-button"
+              title="Cancelar Ação"
               aria-label="cancel command"
               onClick={onClose}
               className="px-4 py-2 bg-green text-gray-800 active:text-red active:scale-95 font-semibold rounded-md hover:bg-light-green"
@@ -60,7 +63,8 @@ export default function Modal({
           <div className="text-center">
             <button
               id="understood-button"
-              aria-label="understood mensagem"
+              title="Confirmar mensagem"
+              aria-label="understood message"
               onClick={onClose}
               className="px-4 py-2 bg-blue-600 text-black active:text-red active:scale-95 font-semibold rounded-md hover:bg-blue-700"
             >

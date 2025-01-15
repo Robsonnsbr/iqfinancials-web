@@ -219,6 +219,7 @@ export default function SearchForm() {
                     <Button
                       type="button"
                       id="remove-region-button"
+                      title="remover região"
                       aria-label="remove region button"
                       className="text-xs py-1 px-2 m-1"
                       onClick={() =>
@@ -233,6 +234,7 @@ export default function SearchForm() {
                   className="self-end m-1"
                   type="button"
                   id="add-region-button"
+                  title="adicionar região"
                   aria-label="add region button"
                   onClick={() => handleAddRegion("mainValues", index)}
                 >
@@ -254,6 +256,7 @@ export default function SearchForm() {
               <Button
                 type="button"
                 id="remove-value-button"
+                title="remover região"
                 aria-label="remove value button"
                 className="self-end md:self-auto mt-2"
                 onClick={() => handleRemoveVariable("mainValues", index)}
@@ -265,6 +268,7 @@ export default function SearchForm() {
           <Button
             type="button"
             id="add-value-button"
+            title="adicionar variável"
             aria-label="add value button"
             className="w-fit self-end"
             onClick={() => handleAddVariable("mainValues")}
@@ -367,6 +371,7 @@ export default function SearchForm() {
                   className="self-end m-1"
                   type="button"
                   id="add-region-button-2"
+                  title="adicionar região"
                   aria-label="add region button"
                   onClick={() => handleAddRegion("secondaryValues", index)}
                 >
@@ -387,6 +392,7 @@ export default function SearchForm() {
               <Button
                 type="button"
                 id="remove-value-button-2"
+                title="remover variável"
                 aria-label="remove value button"
                 className="self-end md:self-auto"
                 onClick={() => handleRemoveVariable("secondaryValues", index)}
@@ -398,6 +404,7 @@ export default function SearchForm() {
           <Button
             type="button"
             id="add-value-button-2"
+            title="adicionar variável"
             aria-label="add value button"
             className="w-fit self-end"
             onClick={() => handleAddVariable("secondaryValues")}
@@ -479,6 +486,7 @@ export default function SearchForm() {
               type="submit"
               className="py-2 px-4"
               id="submit-form-button"
+              title="Enviar formulário"
               aria-label="submit form button"
             >
               {isSubmitting ? "Enviando..." : "Enviar"}

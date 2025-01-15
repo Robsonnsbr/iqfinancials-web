@@ -23,11 +23,12 @@ export default function Error({ error, reset }: IPropsError) {
       </p>
       <button
         id="error-reset-button"
+        title="tentar novamente"
         aria-label="error reset button"
         className="bg-green rounded-md p-2 m-2 shadow-md active:scale-95"
         onClick={() => reset()}
       >
-        try again
+        Tentar novamente
       </button>
     </div>
   );
