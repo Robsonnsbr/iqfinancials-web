@@ -9,7 +9,6 @@ const WppButton = () => {
       id="whatsapp-link"
       title="Botão link WhatsApp"
       aria-label="whatsapp button"
-      type="button"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-fit rounded-full bg-green  hover:bg-light-green hover:-translate-y-1 animate-pulse text-white shadow-md transition-all duration-300"
       href={LINK_WHATSAPP}
       target="_blank"
