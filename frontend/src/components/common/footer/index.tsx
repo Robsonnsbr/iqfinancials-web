@@ -23,11 +23,6 @@ const Footer = ({ ...rest }: FooterProps) => {
                     Nossa missão
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="hover:text-accent">
-                    Carreiras
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -44,11 +39,6 @@ const Footer = ({ ...rest }: FooterProps) => {
                     Suporte Técnico
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="hover:text-accent">
-                    Treinamentos
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -58,11 +48,6 @@ const Footer = ({ ...rest }: FooterProps) => {
                 <li>
                   <a href="#" className="hover:text-accent">
                     Facebook
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-accent">
-                    Twitter
                   </a>
                 </li>
                 <li>
@@ -86,12 +71,7 @@ const Footer = ({ ...rest }: FooterProps) => {
                 </li>
                 <li>
                   <a href="tel:+554199539-8000" className="hover:text-accent">
-                    (41) 99539-8000
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+554199539-8000" className="hover:text-accent">
-                    (41) 99539-8000
+                    (41) 99539-8003
                   </a>
                 </li>
               </ul>

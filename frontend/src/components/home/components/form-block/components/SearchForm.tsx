@@ -92,7 +92,7 @@ export default function SearchForm() {
           className="absolute right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-4 top-4 h-auto w-auto"
         />
 
-        <h3 className="w-full text-center sm:text-lg pt-9 sm:pt-0 ">
+        <h3 className="w-full text-center font-semibold sm:text-lg pt-9 sm:pt-0 ">
           FORMULÁRIO PARA PESQUISA DE DADOS
         </h3>
 
@@ -114,7 +114,7 @@ export default function SearchForm() {
             <Input
               id="whatsapp-email"
               name="whatsappEmail"
-              placeholder="Ex: &#40;41&#41;99000-0000"
+              placeholder="Ex: &#40;41&#41;98000-0000"
               type="text"
               value={formData.whatsappEmail}
               onChange={handleChange}
