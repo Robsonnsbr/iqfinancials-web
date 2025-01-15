@@ -50,6 +50,7 @@ const WppButton = () => {
       className={`transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
+      aria-label="button whatsApp"
     >
       <FloatingWhatsApp
         accountName="Robson"
