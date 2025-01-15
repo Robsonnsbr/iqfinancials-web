@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset e estilos iniciais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Tamanho base */
+}
+
+/* Remover padrão de borda do navegador */
+:focus {
+  outline: none; /* Remove a borda padrão ao focar */
+  box-shadow: none !important;
+}
+
+:root {
+  /* Paleta de cores do projeto */
+  --color-bg: #ffffff;
+  --color-dark: #222831;
+  --color-dark-blue: #475569;
+  --color-mid-dark: #31363F;
+  --color-accent: #76ABAE;
+  --color-light: #EEEEEE;
+  --color-red: #D6002A;
+  --color-green: #268d81;            /* Verde base */
+  --color-light-green: #78b6b1;       /* Verde suave (mais claro que o original) */
+  --color-extra-light-green: #c1e1e0;
+  --color-blue: #343e5c;  
+  --color-blue-light: #4b5984;  
+  --color-success: #07d600;
+  --color-light: #F4F4F4;  
+  --color-light-secondary: #EAEAEA;  
+
+
+  /* Alturas padrão de header e footer */
+  --header-height: 64px; 
+  --footer-height: 200px; 
+  --line-height: 1.5; 
+  --font-size-base: 16px; 
+}
+
+/* Fontes e cores do body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-dark);
+  line-height: var(--line-height);
+  font-size: var(--font-size-base);
+  display: flex;
+  justify-content: center;
+  background: var(--color-dark);
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem; /* 48px */
+}
+
+
+
+
+/* Limitar largura de imagens */
+@layer base {
+  img {
+      width: auto;
+      height: auto;
+  }
+}
+
+/* Utilitários personalizados para Tailwind */
+@layer utilities {
+  
+  /* Contêiner do conteúdo principal */
+  .main-content {
+    width: 90%;
+    flex-grow: 1; 
+    padding-top: var(--header-height); 
+    padding-bottom: var(--footer-height); 
+    overflow: hidden;
+  }
+  
+  /* Estilo do header fixo */
+  .header {
+    height: var(--header-height); /* Altura do header */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    background-color: var(--color-bg); /* Fundo branco para o header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombras sutis */
+  }
+
+  /* Estilo do footer */
+  .footer {
+    width: 100%;
+    min-height: var(--footer-height);
+    background-color: var(--color-mid-dark);
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .border-octagonal {
+    clip-path: polygon(2% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%, 0% 2%);
+  }
+  
+
+  /* Estilos de responsividade */
+  @media (max-width: 768px) {
+    :root {
+      --header-height: 56px; /* Reduz a altura do header em telas menores */
+      --footer-height: 150px; /* Reduz a altura do footer em telas menores */
+      --font-size-base: 14px; /* Tamanho de fonte menor em telas pequenas */
+    }
+
+    .app-container {
+      padding: 8px; /* Menos espaçamento em telas menores */
+    }
+
+    .footer {
+      font-size: 14px; /* Ajusta o tamanho da fonte do footer */
+    }
+  }
+
+  /* Estilos para telas muito pequenas */
+  @media (max-width: 480px) {
+    .header {
+      height: 48px; /* Header ainda mais baixo em telas muito pequenas */
+    }
+
+    .footer {
+      min-height: 120px; /* Reduz footer para telas muito pequenas */
+    }
+
+    .main-content {
+      padding-top: 48px; /* Ajusta para o header menor */
+      padding-bottom: 120px; /* Ajusta para o footer menor */
+    }
+  }
+}
+
+/* Detecta a barra de rolagem e ajusta o layout */
+@media (min-width: 1024px) {
+  /* Quando houver uma barra de rolagem vertical, ajusta o layout */
+  .app-container {
+    max-width: calc(100% - 15px); /* Ajusta a largura do conteúdo quando a barra de rolagem estiver presente */
+  }
+}
