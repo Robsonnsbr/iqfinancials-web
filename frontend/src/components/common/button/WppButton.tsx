@@ -29,18 +29,36 @@
 // export default WppButton;
 
 "use client";
+import { useState, useEffect } from "react";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import avatar from "@public/avatar.jpg";
 
 const WppButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  //Evita que apareça o conflito entre o btn de wpp e o efeito de pageDown
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <FloatingWhatsApp
-      accountName="Robson"
-      phoneNumber="5541995398003"
-      avatar={avatar.src}
-      chatMessage="Olá! 🤝 Como podemos ajudar?"
-      statusMessage="Normalmente responde dentro de 1 hora"
-    />
+    <div
+      className={`transition-opacity duration-500 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <FloatingWhatsApp
+        accountName="Robson"
+        phoneNumber="5541995398003"
+        avatar={avatar.src}
+        chatMessage="Olá! 🤝 Como podemos ajudar?"
+        statusMessage="Normalmente responde dentro de 1 hora"
+      />
+    </div>
   );
 };
 
