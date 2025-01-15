@@ -353,6 +353,7 @@ export default function SearchForm() {
                     <Button
                       type="button"
                       id="remove-region-button-2"
+                      title="remover região"
                       aria-label="remove region button"
                       className="text-xs py-1 px-2 m-1"
                       onClick={() =>
@@ -469,7 +470,10 @@ export default function SearchForm() {
               )}
             </Label>
 
-            <Label className="uppercase hover:bg-black/60 border-2 border-transparent active:border-red flex items-center gap-2 text-red font-semibold bg-black/50 p-2 rounded-md cursor-pointer select-none">
+            <Label
+              title="marcar como urgente"
+              className="uppercase hover:bg-black/60 border-2 border-transparent active:border-red flex items-center gap-2 text-red font-semibold bg-black/50 p-2 rounded-md cursor-pointer select-none"
+            >
               urgente
               <Input
                 required={false}
