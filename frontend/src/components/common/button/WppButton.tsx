@@ -47,7 +47,7 @@ const WppButton = () => {
 
   return (
     <div
-      className={`transition-opacity duration-500 ${
+      className={`transition-opacity duration-500  ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       aria-label="button whatsApp"
@@ -56,6 +56,7 @@ const WppButton = () => {
         accountName="Robson"
         phoneNumber="5541995398003"
         avatar={avatar.src}
+        allowClickAway={true}
         chatMessage="Olá, tudo bem? Me chamo Robson e sou um dos consultores da IQFinancials. Como posso lhe ajudar hoje?"
         statusMessage="Normalmente responde dentro de 1 hora"
       />

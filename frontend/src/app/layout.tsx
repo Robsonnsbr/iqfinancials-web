@@ -6,6 +6,7 @@ import "./styles/globals.css";
 import AppProviders from "@contexts/index";
 
 import WppButton from "@components/common/button/WppButton";
+import ScrollButton from "@components/common/button/ScrollButton";
 
 export const metadata: Metadata = {
   title: "IQ Financials",
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <AppProviders>
           {children}
+          <ScrollButton />
           <WppButton />
         </AppProviders>
       </body>

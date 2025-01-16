@@ -6,8 +6,8 @@ export default function AppProviders({
   children: React.ReactNode;
 }) {
   return (
-    // <outroProvider> //respeitar a ontem de importância
+    // <anotherProvider> //respect the order of priority
     <ScrollProvider>{children}</ScrollProvider>
-    // </outroProvider>
+    // </anotherProvider>
   );
 }
