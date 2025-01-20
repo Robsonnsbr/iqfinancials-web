@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { raleway, poppins, openSans } from "../../src/font";
+import { raleway, poppins, openSans } from "@font/index";
 import "./styles/globals.css";
 
 import AppProviders from "@contexts/index";
@@ -21,10 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      {/* <head>
-        <link rel="preload" as="image" href="/background/hero-section.webp" />
-      </head> */}
-
       <body
         suppressHydrationWarning={true}
         className={`${raleway.variable} ${poppins.variable} ${openSans.variable} font-sans`}
