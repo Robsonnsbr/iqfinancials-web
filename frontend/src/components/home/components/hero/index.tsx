@@ -20,6 +20,7 @@ export default function Hero() {
               loading="eager"
               style={{ height: "auto", width: "auto" }}
               className="sm:pt-20"
+              placeholder="blur"
               priority={process.env.NODE_ENV === "production"}
             />
           </span>
