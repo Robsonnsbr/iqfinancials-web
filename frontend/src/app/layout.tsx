@@ -21,9 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head>
+      {/* <head>
         <link rel="preload" as="image" href="/background/hero-section.webp" />
-      </head>
+      </head> */}
 
       <body
         suppressHydrationWarning={true}

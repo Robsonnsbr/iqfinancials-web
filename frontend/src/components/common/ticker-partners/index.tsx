@@ -64,6 +64,7 @@ export default function TickerPartners() {
             className="z-20"
             src={src}
             loading="lazy"
+            placeholder="blur"
           />
         ))}
       </motion.div>
