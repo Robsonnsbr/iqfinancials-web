@@ -10,6 +10,7 @@ export default function HeroContent() {
           <Image
             alt="logo iq financials"
             src={logoIQWithName}
+            loading="eager"
             width={878}
             height={169}
             style={{ height: "auto", width: "40rem" }}
