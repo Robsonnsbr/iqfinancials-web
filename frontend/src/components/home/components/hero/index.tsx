@@ -1,7 +1,7 @@
 import ContentContainer from "@components/common/containers/ContentContainer";
 
-import Image from "next/image";
-import { logoIQWithName } from "@public/logos/index";
+// import Image from "next/image";
+// import { logoIQWithName } from "@public/logos/index";
 
 import { IoMdArrowRoundForward } from "react-icons/io";
 
@@ -12,15 +12,15 @@ export default function Hero() {
         <h1 className="font-extrabold leading-none uppercase">
           <span className="font-raleway flex items-center justify-center">
             <span className="sr-only">iq financials</span>
-            <Image
+            {/* <Image
               alt="logo iq financials"
               src={logoIQWithName}
               width={878}
               height={169}
               style={{ height: "auto", width: "40rem" }}
               className="sm:pt-20"
-              // priority={process.env.NODE_ENV === "production"}
-            />
+              priority={process.env.NODE_ENV === "production"}
+            /> */}
           </span>
           <span className="text-3xl border-t-2 border-red">
             Dados Econômicos, Financeiros e Contábeis
@@ -71,7 +71,6 @@ export default function Hero() {
             setor e avaliação de empresas.
           </li>
         </ul>
-        {/* </IconContext.Provider> */}
       </div>
     </ContentContainer>
   );
