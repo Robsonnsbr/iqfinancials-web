@@ -9,8 +9,17 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.2s ease-in 0.3s forwards",
+      },
       screens: {
-        "3xl": "1920px", // Custom breakpoint para 1920px
+        "3xl": "1920px",
       },
 
       fontFamily: {

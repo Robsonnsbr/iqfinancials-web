@@ -1,12 +1,17 @@
+"use client";
+
 import React, { HTMLAttributes } from "react";
 import ContentContainer from "@components/common/containers/ContentContainer";
 import SectionContainer from "../containers/SectionContainer";
+import { useRefContext } from "@contexts/refs";
 
 type FooterProps = HTMLAttributes<HTMLDivElement>;
 
 const Footer = ({ ...rest }: FooterProps) => {
+  const { footerRef } = useRefContext();
+
   return (
-    <footer {...rest} className="text-whiteSnow" id="footer">
+    <footer {...rest} ref={footerRef} className="text-whiteSnow" id="footer">
       <SectionContainer id="footer-section" className="!min-h-fit bg-blue">
         <ContentContainer className="flex flex-col gap-12" id="footer-content">
           <div className="flex flex-wrap gap-6 justify-center items-center text-white sm:py-16 w-full">

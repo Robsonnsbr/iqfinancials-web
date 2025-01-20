@@ -1,85 +1,36 @@
-import {
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useRef,
-} from "react";
+import React, { createContext, useContext, useRef, ReactNode } from "react";
 
-type ISectionRef = React.RefObject<HTMLDivElement | null>;
+// Contexto com a referência para o elemento (footer)
+type IRefContext = {
+  footerRef: React.RefObject<HTMLElement | null>; // Usando uma RefObject para o footer
+};
 
-interface IFnUpdate {
-  (ref: HTMLDivElement | null): void;
-}
-
-interface ScrollContextProps {
-  sectionAboutSummaryRef: ISectionRef;
-  sectionTopHomeRef: ISectionRef;
-  sectionListServicesRef: ISectionRef;
-  sectionTestimonialsHomeRef: ISectionRef;
-  updateAboutSummaryRef: IFnUpdate;
-  updateSectionTopHomeRef: IFnUpdate;
-  updateSectionListServicesRef: IFnUpdate;
-  updateSectionTestimonialsHomeRef: IFnUpdate;
-}
-
-const ScrollContext = createContext<ScrollContextProps | null>(null);
-
-interface ScrollProviderProps {
+interface RefProviderProps {
   children: ReactNode;
+  initialRef?: HTMLElement | null; // Permite passar uma ref inicial do tipo HTMLElement
 }
 
-export const ScrollProvider = ({ children }: ScrollProviderProps) => {
-  const sectionAboutSummaryRef = useRef<HTMLDivElement | null>(null);
-  const sectionTopHomeRef = useRef<HTMLDivElement | null>(null);
-  const sectionListServicesRef = useRef<HTMLDivElement | null>(null);
-  const sectionTestimonialsHomeRef = useRef<HTMLDivElement | null>(null);
+// Criando o contexto
+const RefContext = createContext<IRefContext | undefined>(undefined);
 
-  const updateAboutSummaryRef = useCallback((ref: HTMLDivElement | null) => {
-    sectionAboutSummaryRef.current = ref;
-  }, []);
+// Componente RefProvider, agora simplificado
+export const RefProvider = ({ children, initialRef }: RefProviderProps) => {
+  const footerRef = useRef<HTMLElement | null>(initialRef || null); // A ref do tipo HTMLElement
 
-  const updateSectionTopHomeRef = useCallback((ref: HTMLDivElement | null) => {
-    sectionTopHomeRef.current = ref;
-  }, []);
-
-  const updateSectionListServicesRef = useCallback(
-    (ref: HTMLDivElement | null) => {
-      sectionListServicesRef.current = ref;
-    },
-    []
-  );
-  const updateSectionTestimonialsHomeRef = useCallback(
-    (ref: HTMLDivElement | null) => {
-      sectionTestimonialsHomeRef.current = ref;
-    },
-    []
-  );
-
-  const contextValue: ScrollContextProps = {
-    sectionAboutSummaryRef,
-    sectionTopHomeRef,
-    sectionListServicesRef,
-    sectionTestimonialsHomeRef,
-    updateAboutSummaryRef,
-    updateSectionTopHomeRef,
-    updateSectionListServicesRef,
-    updateSectionTestimonialsHomeRef,
+  const contextValue: IRefContext = {
+    footerRef, // Passando a ref diretamente para o contexto
   };
 
   return (
-    <ScrollContext.Provider value={contextValue}>
-      {children}
-    </ScrollContext.Provider>
+    <RefContext.Provider value={contextValue}>{children}</RefContext.Provider>
   );
 };
 
-export const useScrollContext = (): ScrollContextProps => {
-  const context = useContext(ScrollContext);
+// Hook para consumir o contexto e acessar a ref
+export const useRefContext = (): IRefContext => {
+  const context = useContext(RefContext);
   if (!context) {
-    throw new Error(
-      "useScrollContext deve ser usado dentro de um ScrollProvider"
-    );
+    throw new Error("useRefContext deve ser usado dentro de um RefProvider");
   }
   return context;
 };

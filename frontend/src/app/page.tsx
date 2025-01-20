@@ -1,4 +1,3 @@
-import AppContainer from "@components/common/containers/AppContainer";
 import SectionContainer from "@components/common/containers/SectionContainer";
 
 // import Header from "@components/header";
@@ -15,7 +14,7 @@ import {
 
 export default function Home() {
   return (
-    <AppContainer>
+    <>
       <SectionContainer
         role="banner"
         id="hero-section"
@@ -55,7 +54,7 @@ export default function Home() {
         </SectionContainer>
       </Main>
       <Footer />
-    </AppContainer>
+    </>
   );
 }
 

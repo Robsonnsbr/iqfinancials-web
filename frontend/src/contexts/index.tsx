@@ -1,5 +1,5 @@
 "use client";
-import { ScrollProvider } from "./refs";
+import { RefProvider } from "@contexts/refs";
 export default function AppProviders({
   children,
 }: {
@@ -7,7 +7,7 @@ export default function AppProviders({
 }) {
   return (
     // <anotherProvider> //respect the order of priority
-    <ScrollProvider>{children}</ScrollProvider>
+    <RefProvider>{children}</RefProvider>
     // </anotherProvider>
   );
 }

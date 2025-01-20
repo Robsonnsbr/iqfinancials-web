@@ -29,27 +29,14 @@
 // export default WppButton;
 
 "use client";
-import { useState, useEffect } from "react";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import avatar from "@public/avatar.jpg";
 
 const WppButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  //Evita que apareça o conflito entre o btn de wpp e o efeito de pageDown
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div
-      className={`transition-opacity duration-500  ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      id="whatsapp-button"
+      className="opacity-0 animate-fade-in absolute"
       aria-label="button whatsApp"
     >
       <FloatingWhatsApp
