@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { logoIQWithName } from "@public/logos/index";
+// import Image from "next/image";
+// import { logoIQWithName } from "@public/logos/index";
 
 export default function HeroContent() {
   return (
@@ -7,7 +7,7 @@ export default function HeroContent() {
       <h1 className="font-extrabold leading-none uppercase">
         <span className="font-raleway flex items-center justify-center">
           <span className="sr-only">iq financials</span>
-          <Image
+          {/* <Image
             alt="logo iq financials"
             src={logoIQWithName}
             loading="eager"
@@ -16,7 +16,7 @@ export default function HeroContent() {
             style={{ height: "auto", width: "40rem" }}
             className="sm:pt-20"
             priority={process.env.NODE_ENV === "production"}
-          />
+          /> */}
         </span>
         <span className="text-3xl border-t-2 border-red">
           Dados Econômicos, Financeiros e Contábeis
