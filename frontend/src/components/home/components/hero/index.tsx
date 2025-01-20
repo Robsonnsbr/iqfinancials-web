@@ -15,12 +15,15 @@ export default function Hero() {
             <Image
               alt="logo iq financials"
               src={logoIQWithName}
-              width={878}
-              height={169}
-              loading="lazy"
-              style={{ height: "auto", width: "40rem" }}
+              width={600}
+              height={69}
+              // width={878}
+              // height={169}
+              // loading="lazy"
+              style={{ height: "auto", width: "30rem" }}
+              // style={{ height: "auto", width: "40rem" }}
               className="sm:pt-20"
-              priority={process.env.NODE_ENV === "production"}
+              // priority={process.env.NODE_ENV === "production"}
             />
           </span>
           <span className="text-3xl border-t-2 border-red">
