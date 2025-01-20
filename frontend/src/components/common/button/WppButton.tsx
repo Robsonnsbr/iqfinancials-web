@@ -34,11 +34,7 @@ import avatar from "@public/avatar.jpg";
 
 const WppButton = () => {
   return (
-    <div
-      id="whatsapp-button"
-      className="opacity-0 animate-fade-in absolute"
-      aria-label="button whatsApp"
-    >
+    <div id="whatsapp-button" className="opacity-0 animate-fade-in absolute">
       <FloatingWhatsApp
         accountName="Robson"
         phoneNumber="5541995398003"
