@@ -16,7 +16,7 @@ export default function Hero() {
               alt="logo iq financials"
               src={logoIQWithName}
               width={650}
-              height={169}
+              height={125}
               loading="eager"
               style={{ height: "auto", width: "auto" }}
               className="sm:pt-20"
