@@ -11,7 +11,10 @@ export default function NotFound() {
       <SectionContainer id="not-found-section ">
         <div className="text-center text-white bg-red p-10">
           <h1 aria-label="Erro 404">
-            <TbError404Off aria-hidden="true" className="size-32 m-auto" />
+            <TbError404Off
+              aria-label="icon erro 404"
+              className="size-32 m-auto"
+            />
           </h1>
           <p className="text-2xl mb-6">Página não encontrada</p>
           <Link
