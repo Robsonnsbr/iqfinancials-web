@@ -6,79 +6,82 @@ export default function Instructions() {
     <ContentContainer className="flex flex-col py-12 overflow-hidden 3xl:scale-105">
       <SvgLine align="right" />
       <div className="flex flex-wrap text-white marker:text-red">
-        {/* Form Submission Instructions - Colocado primeiro em telas pequenas */}
-        <div className="flex w-full  lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
+        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
           <div className="text-center p-6 bg-blue shadow-lg w-full rounded-md">
-            <h2 className="text-xl font-semibold mb-6">
-              Form Submission Instructions
-            </h2>
+            <h2 className="text-xl font-semibold mb-6">Campos do formulário</h2>
             <ul className="text-left mt-4 ml-4 list-disc">
+              <li className="mb-4">Todos os campos são obrigatórios.</li>
               <li className="mb-4">
-                Ensure all fields are correctly filled out before submitting.
+                &quot;Justificativa da variável&quot; e &quot;Observações
+                gerais&quot; não são obrigatórios, mas devem ser preenchidos com
+                &quot;nenhuma&quot; caso não haja informações adicionais. Esses
+                campos são relevantes para a pesquisa.
               </li>
               <li className="mb-4">
-                Double-check your email address for accuracy to receive updates.
-              </li>
-              <li className="mb-4">
-                You can edit the form anytime before final submission.
-              </li>
-              <li className="mb-4">
-                Once submitted, you will not be able to make further changes.
+                O campo &quot;Tipo&quot; se refere ao tipo de dado ou
+                tratamento. A opção &quot;Outros&quot; permite a inclusão de
+                dados específicos, que serão analisados e podem ser aceitos,
+                ajustados ou rejeitados.
               </li>
             </ul>
           </div>
         </div>
 
         {/* Instructions for Form Use */}
-        <div className="flex w-full  lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
+        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
           <div className="text-center p-6 bg-blue shadow-lg w-full rounded-md">
             <h2 className="text-xl font-semibold mb-6">
-              Instructions for Form Use
+              Instruções para o formulário
             </h2>
             <ul className="text-left mt-4 ml-4 list-disc">
               <li className="mb-4">
-                Step 1: Enter your personal details in the fields below.
+                A inclusão de várias variáveis é permitida, sendo que cada uma
+                será avaliada e precificada conforme sua complexidade.
               </li>
               <li className="mb-4">
-                Step 2: Select your preferences from the available options.
+                É possível incluir uma variável principal ou várias, conforme
+                necessário.
               </li>
               <li className="mb-4">
-                Step 3: Confirm your information and click submit to finalize.
+                Também é possível incluir uma variável secundária/controle ou
+                mais, dependendo da sua necessidade.
               </li>
               <li className="mb-4">
-                Step 4: You will receive a confirmation email once your form has
-                been successfully submitted.
+                Cada variável pode ter associada uma ou mais regiões, conforme
+                os requisitos da pesquisa.
               </li>
             </ul>
           </div>
         </div>
 
         {/* Form Fields */}
-        <div className="flex w-full  lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
+        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
           <div className="text-center p-6 bg-blue shadow-lg w-full rounded-md">
-            <h2 className="text-xl font-semibold mb-6">Form Fields</h2>
+            <h2 className="text-xl font-semibold mb-6">Custo e Tempo</h2>
             <ul className="text-left mt-4 ml-4 list-disc">
               <li className="mb-4">
-                Field 1: Name – Please enter your full name.
+                A precificação inicial é baseada no número de variáveis, com
+                ajustes possíveis dependendo do tipo de tratamento.
               </li>
               <li className="mb-4">
-                Field 2: Email – Enter a valid email address.
+                A opção de <span className="text-red">urgência</span> no
+                formulário pode impactar no custo final da pesquisa.
               </li>
               <li className="mb-4">
-                Field 3: Contact Number – Provide a phone number where we can
-                reach you.
+                O prazo máximo para retorno é de até 1 dia útil, quando a
+                precificação completa será fornecida.
               </li>
               <li className="mb-4">
-                Field 4: Preferences – Select the options that best describe
-                your interests.
+                Em caso de dúvidas, nossa equipe de consultores está à
+                disposição para ajudar.
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="flex w-full  lg:w-1/2 xl:w-1/4 py-4 lg:px-2 order-first xl:order-none">
+        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2 order-first xl:order-none">
           <h2 className="uppercase self-center font-poppins font-extrabold text-3xl text-center text-blue">
-            guia de preenchimento do formulário
+            Guia de Preenchimento do Formulário
           </h2>
         </div>
       </div>
