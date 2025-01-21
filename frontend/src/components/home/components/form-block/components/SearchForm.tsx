@@ -74,7 +74,9 @@ export default function SearchForm() {
                 Mensagem enviada com sucesso!
               </span>
               <span className="flex items-center justify-center mt-2">
-                Pedimos um prazo de até 1 dia útil para um retorno.
+                Solicitamos um prazo de até 3 dias úteis para fornecer uma
+                resposta. Para dúvidas ou questões urgentes, envie uma mensagem
+                para o WhatsApp: (41)99539-8003.
               </span>
             </>
           )
