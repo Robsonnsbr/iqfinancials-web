@@ -12,11 +12,11 @@ export default function Instructions() {
             <ul className="text-left mt-4 ml-4 list-disc">
               <li className="mb-4">
                 Por gentileza, preencher todos os campos com o máximo de
-                detalhamento
+                detalhamento.
               </li>
               <li className="mb-4">
                 Caso não queira adicionar maiores detalhes nos campos, favor
-                preencher com N/A
+                preencher com N/A.
               </li>
               <li className="mb-4">
                 O campo &quot;Tipo&quot; se refere ao tipo de dado ou
@@ -42,7 +42,7 @@ export default function Instructions() {
               <li className="mb-4">
                 É possível incluir diversas variáveis, mas pedimos que separe
                 entre as principais e as secundárias para melhor alinhamento do
-                orçamento
+                orçamento.
               </li>
               <li className="mb-4">
                 Cada variável pode ser coletada em diversas regiões, conforme os
