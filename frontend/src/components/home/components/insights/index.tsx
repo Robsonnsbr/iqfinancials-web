@@ -19,7 +19,6 @@ export default function Insights() {
               <li className="mb-4">Acadêmicos</li>
               <li className="mb-4">
                 Professores de Finanças, Contabilidade, Economia e outras áreas
-                de interesse
               </li>
               <li className="mb-4">Gestores de Ativos</li>
               <li className="mb-4">Empresas</li>
@@ -59,8 +58,7 @@ export default function Insights() {
                 espelhar como é coletado e calculado tais informações)
               </li>
               <li className="mb-4">
-                Base integrada da Thompson Reuters, Capital IQ e
-                Standard&amp;Poors
+                Base integrada da Thompson Reuters, Standard&Poor&amp;s e outras
               </li>
             </ul>
           </div>

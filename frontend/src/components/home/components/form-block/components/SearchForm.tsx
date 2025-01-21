@@ -126,7 +126,7 @@ export default function SearchForm() {
             <Input
               id="instituicao"
               name="instituicao"
-              placeholder="Ex: UFPR"
+              placeholder="Ex: USP"
               type="text"
               value={formData.instituicao}
               onChange={handleChange}
@@ -156,7 +156,7 @@ export default function SearchForm() {
                 <Input
                   id="variavel"
                   name="variavel"
-                  placeholder="Ex: PIB Nominal"
+                  placeholder="Ex: Receita anual de empresas aberta na bolsa"
                   type="text"
                   value={variable.variavel}
                   onChange={(e) => handleChange(e, "mainValues", index)}
@@ -247,7 +247,7 @@ export default function SearchForm() {
                 <TextArea
                   id="justificativa"
                   name="justificativa"
-                  placeholder="Ex: Base para cálculo de projeções / nenhuma"
+                  placeholder="observações ou detalhes da variável"
                   value={variable.justificativa}
                   onChange={(e) => handleChange(e, "mainValues", index)}
                 />
@@ -420,7 +420,7 @@ export default function SearchForm() {
           <TextArea
             id="obs-geral"
             name="obsGeral"
-            placeholder="Ex: Dados preliminares sujeitos a ajustes, País faltante na lista, mais dados ou informações / nenhuma"
+            placeholder="Ex: preciso que todas as empresas sejam abertas na bolsa e com mais de 100 milhões de receita líquida anual"
             value={formData.obsGeral}
             onChange={handleChange}
           />

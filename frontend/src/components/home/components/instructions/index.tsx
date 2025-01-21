@@ -10,7 +10,10 @@ export default function Instructions() {
           <div className="text-center p-6 bg-blue shadow-lg w-full rounded-md">
             <h2 className="text-xl font-semibold mb-6">Campos do formulário</h2>
             <ul className="text-left mt-4 ml-4 list-disc">
-              <li className="mb-4">Todos os campos são obrigatórios.</li>
+              <li className="mb-4">
+                Por gentileza, preencher todos os campos com o máximo de
+                detalhamento
+              </li>
               <li className="mb-4">
                 &quot;Justificativa da variável&quot; e &quot;Observações
                 gerais&quot; não são obrigatórios, mas devem ser preenchidos com

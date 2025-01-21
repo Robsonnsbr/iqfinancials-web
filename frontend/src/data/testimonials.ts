@@ -1,23 +1,23 @@
 export const testimonials = [
   {
-    name: "Dr. Ana Souza",
-    role: "Professora de Economia",
-    institution: "Universidade Federal do Brasil",
+    name: "Dr. Rodolfo Vieira Nunes",
+    role: "Professor",
+    institution: "Universidade Federal de Juiz de Fora - UFJF",
     testimony:
-      "As análises fornecidas foram fundamentais para embasar meu artigo sobre o impacto de políticas econômicas em mercados emergentes. Os dados eram precisos e abrangentes.",
+      "Excelente plataforma para ajudar profissionais e estudantes a coletarem as variáveis necessárias para o desenvolvimento dos estudos em Finanças.",
   },
   {
-    name: "João Pereira",
-    role: "Pesquisador de Finanças",
-    institution: "Instituto Brasileiro de Pesquisas Financeiras",
-    testimony:
-      "Os relatórios gerados pela plataforma foram indispensáveis na construção do meu estudo sobre a volatilidade do mercado financeiro. Recomendo para quem busca dados confiáveis.",
-  },
-  {
-    name: "Mariana Silva",
-    role: "Doutoranda em Ciência de Dados",
+    name: "Matheus Torquato",
+    role: "Doutorando pela USP em Finanças",
     institution: "Universidade de São Paulo",
     testimony:
-      "Graças aos datasets detalhados e organizados, consegui desenvolver modelos preditivos robustos para minha pesquisa sobre comportamento do consumidor. O suporte técnico também foi excelente.",
+      "Coleta rápida e completa de dados contábeis e financeiros. Ideal para quem trabalha com econometria e Valuation.",
+  },
+  {
+    name: "Pedro Barros",
+    role: "Mestrando em Modelos Econométricos em Infraestrutura",
+    institution: "Escola Politécnica da Universidade de São Paulo",
+    testimony:
+      "Com ajuda na coleta das informações, consegui acelerar meus estudos de mercado e calcular taxas de desconto com muito mais precisão. Excelente!",
   },
 ];

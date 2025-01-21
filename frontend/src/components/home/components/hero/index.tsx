@@ -29,25 +29,25 @@ export default function Hero() {
           </span>
         </h1>
         <h2 className="text-2xl font-bold leading-snug">
-          Precisa de ajuda para coletar seus dados econômico-financeiros?
+          Precisando de ajuda com seus dados econômico-financeiros e contábeis?
         </h2>
       </div>
       <div className="flex flex-wrap gap-6 justify-center items-start text-lg text-white leading-relaxed text-justify py-10">
         <ul className="list-none flex-1 min-w-[300px] max-w-[500px] text-xl w-6 space-y-4">
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Dados financeiros de mais de 200 mil empresas públicas e privadas,
-            incluindo balanços patrimoniais, demonstrações de resultados, fluxo
-            de caixa e indicadores financeiros.
+            Dados financeiros abrangentes de mais de 200 mil empresas públicas e
+            privadas, incluindo balanços patrimoniais, demonstrações de
+            resultados, fluxos de caixa e indicadores financeiros.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Informações de mais de 70 mil transações distribuídas em mais de 150
-            países.
+            Informações detalhadas sobre mais de 70 mil transações, cobrindo
+            mais de 150 países.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Informações de setor e indústria.
+            Insights aprofundados sobre setores e indústrias.
           </li>
         </ul>
 
@@ -58,19 +58,19 @@ export default function Hero() {
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Dados de mercados financeiros globais, incluindo títulos de dívidas,
-            commodities e derivativos.
+            Acesso a dados de mercados financeiros globais, incluindo títulos de
+            dívida, commodities e derivativos.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Integração para Excel, Stata, Python e outros softwares necessários
-            para análises.
+            Integração completa com softwares como Excel, Stata, Python, entre
+            outros, facilitando suas análises.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Informações para diversas necessidades, como estudos econométricos,
-            cálculo de taxa de desconto, análise de múltiplos, projeções de
-            setor e avaliação de empresas.
+            Recursos adaptados para diversas finalidades, como estudos
+            econométricos, cálculo de taxa de desconto, análise de múltiplos,
+            projeções de setor e avaliação de empresas.
           </li>
         </ul>
       </div>
