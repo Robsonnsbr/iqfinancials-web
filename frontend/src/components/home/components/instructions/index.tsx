@@ -4,8 +4,13 @@ import SvgLine from "@components/common/svgs/SvgLine";
 export default function Instructions() {
   return (
     <ContentContainer className="flex flex-col py-12 overflow-hidden 3xl:scale-105">
-      <SvgLine align="right" />
+      <SvgLine />
       <div className="flex flex-wrap text-white marker:text-red">
+        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2 order-first xl:order-none">
+          <h2 className="uppercase self-center font-poppins font-extrabold text-3xl text-center text-blue">
+            Guia de Preenchimento do Formulário
+          </h2>
+        </div>
         <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
           <div className="text-center p-6 bg-blue shadow-lg w-full rounded-md">
             <h2 className="text-xl font-semibold mb-6">Campos do formulário</h2>
@@ -75,12 +80,6 @@ export default function Instructions() {
               </li>
             </ul>
           </div>
-        </div>
-
-        <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2 order-first xl:order-none">
-          <h2 className="uppercase self-center font-poppins font-extrabold text-3xl text-center text-blue">
-            Guia de Preenchimento do Formulário
-          </h2>
         </div>
       </div>
     </ContentContainer>

@@ -39,18 +39,18 @@ export default function Home() {
         </SectionContainer>
 
         <SectionContainer
-          id="instructions-section"
-          className="bg-instructions-section bg-scroll"
-        >
-          <Instructions />
-        </SectionContainer>
-
-        <SectionContainer
           id="form-block-section"
-          className="bg-parallax-form-section justify-between"
+          className="bg-parallax-form-section justify-between bg-scroll"
         >
           <FormBlock />
           <TickerPartners />
+        </SectionContainer>
+
+        <SectionContainer
+          id="instructions-section"
+          className="bg-instructions-section"
+        >
+          <Instructions />
         </SectionContainer>
       </Main>
       <Footer />
