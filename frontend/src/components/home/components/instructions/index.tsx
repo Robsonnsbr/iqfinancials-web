@@ -66,7 +66,7 @@ export default function Instructions() {
                 formulário pode impactar no custo final da pesquisa.
               </li>
               <li className="mb-4">
-                O prazo máximo para retorno é de até 1 dia útil, quando a
+                O prazo máximo para retorno é de até 3 dia úteis, quando a
                 precificação completa será fornecida.
               </li>
               <li className="mb-4">
