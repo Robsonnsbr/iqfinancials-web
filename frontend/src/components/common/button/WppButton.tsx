@@ -1,8 +1,28 @@
 "use client";
+import { useState, useEffect } from "react";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import avatar from "@public/avatar.jpg";
 
 const WppButton = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setIsLoaded(true);
+    } else {
+      const handleLoad = () => setIsLoaded(true);
+      window.addEventListener("load", handleLoad);
+
+      return () => {
+        window.removeEventListener("load", handleLoad);
+      };
+    }
+  }, []);
+
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
     <div id="whatsapp-button" className="opacity-0 animate-fade-in absolute">
       <FloatingWhatsApp
