@@ -40,7 +40,7 @@ export default function Home() {
 
         <SectionContainer
           id="form-block-section"
-          className="bg-parallax-form-section justify-between bg-scroll"
+          className="bg-parallax-form-section justify-between bg-scroll !bg-contain !bg-repeat"
         >
           <FormBlock />
           <TickerPartners />
