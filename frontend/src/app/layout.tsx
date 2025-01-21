@@ -21,6 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="PVz5utXiVRiKJBETwDV2bH8cGjcRT_Ij0Nt1EbQwKWQ"
+        />
+      </head>
       <body
         suppressHydrationWarning={true}
         className={`${raleway.variable} ${poppins.variable} ${openSans.variable} font-sans`}
