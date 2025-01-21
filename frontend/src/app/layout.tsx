@@ -26,6 +26,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="PVz5utXiVRiKJBETwDV2bH8cGjcRT_Ij0Nt1EbQwKWQ"
         />
+        <meta name="robots" content="index, follow" />
       </head>
       <body
         suppressHydrationWarning={true}
