@@ -10,6 +10,9 @@ import ScrollButton from "@components/common/button/ScrollButton";
 
 export const metadata: Metadata = {
   title: "IQ Financials",
+  icons: {
+    icon: "/favicon.ico",
+  },
   description: `Dados Econômicos, Financeiros e Contábeis, para acadêmicos, 
     gestores e investidores.`,
 };
