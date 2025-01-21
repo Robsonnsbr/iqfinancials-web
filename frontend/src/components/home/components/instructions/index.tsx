@@ -15,10 +15,8 @@ export default function Instructions() {
                 detalhamento
               </li>
               <li className="mb-4">
-                &quot;Justificativa da variável&quot; e &quot;Observações
-                gerais&quot; não são obrigatórios, mas devem ser preenchidos com
-                &quot;nenhuma&quot; caso não haja informações adicionais. Esses
-                campos são relevantes para a pesquisa.
+                Caso não queira adicionar maiores detalhes nos campos, favor
+                preencher com N/A
               </li>
               <li className="mb-4">
                 O campo &quot;Tipo&quot; se refere ao tipo de dado ou
@@ -42,16 +40,13 @@ export default function Instructions() {
                 será avaliada e precificada conforme sua complexidade.
               </li>
               <li className="mb-4">
-                É possível incluir uma variável principal ou várias, conforme
-                necessário.
+                É possível incluir diversas variáveis, mas pedimos que separe
+                entre as principais e as secundárias para melhor alinhamento do
+                orçamento
               </li>
               <li className="mb-4">
-                Também é possível incluir uma variável secundária/controle ou
-                mais, dependendo da sua necessidade.
-              </li>
-              <li className="mb-4">
-                Cada variável pode ter associada uma ou mais regiões, conforme
-                os requisitos da pesquisa.
+                Cada variável pode ser coletada em diversas regiões, conforme os
+                requisitos da pesquisa.
               </li>
             </ul>
           </div>
