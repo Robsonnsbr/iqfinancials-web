@@ -137,13 +137,27 @@ export default function SearchForm() {
 
           <Label className="flex flex-col">
             Finalidade
-            <Select
-              id="finalidade"
-              name="finalidade"
-              options={sortedListPurpose}
-              value={formData.finalidade}
-              onChange={handleChange}
-            />
+            <div className="flex flex-wrap items-center gap-4">
+              <Select
+                id="finalidade"
+                name="finalidade"
+                options={sortedListPurpose}
+                value={formData.finalidade}
+                onChange={handleChange}
+              />
+              {formData.finalidade === "Outros" && (
+                <Input
+                  autoFocus={formData.finalidade === "Outros"}
+                  required={true}
+                  type="text"
+                  id="customPurpose"
+                  placeholder="Ex: pesquisa pessoal"
+                  name="customPurpose"
+                  value={formData.customPurpose}
+                  onChange={handleChange}
+                />
+              )}
+            </div>
           </Label>
         </div>
 
@@ -161,6 +175,17 @@ export default function SearchForm() {
                   placeholder="Ex: Receita anual de empresas aberta na bolsa"
                   type="text"
                   value={variable.variavel}
+                  onChange={(e) => handleChange(e, "mainValues", index)}
+                />
+              </Label>
+              <Label className="flex flex-col">
+                Unidade / moeda
+                <Input
+                  id="currencyOrUnit"
+                  name="currencyOrUnit"
+                  placeholder="Ex: Reais / dólares"
+                  type="text"
+                  value={variable.currencyOrUnit}
                   onChange={(e) => handleChange(e, "mainValues", index)}
                 />
               </Label>
@@ -209,15 +234,28 @@ export default function SearchForm() {
                 Região
                 {variable.regioes.map((regiao, regionIndex) => (
                   <div key={regionIndex} className="flex mb-2 items-center">
-                    <Select
-                      id="regiao"
-                      name="regiao"
-                      value={regiao}
-                      options={sortedListCountries}
-                      onChange={(e) =>
-                        handleChange(e, "mainValues", index, regionIndex)
-                      }
-                    />
+                    <div className="flex flex-col gap-4">
+                      <Select
+                        id="regiao"
+                        name="regiao"
+                        value={regiao}
+                        options={sortedListCountries}
+                        onChange={(e) =>
+                          handleChange(e, "mainValues", index, regionIndex)
+                        }
+                      />
+                      {/* Verifica se o valor da região selecionada é "Outros" */}
+                      {regiao === "Outros" && (
+                        <Input
+                          required
+                          type="text"
+                          placeholder="Ex: América Latina"
+                          onChange={(e) =>
+                            handleChange(e, "mainValues", index, regionIndex)
+                          } // Passa o índice para indicar que é um input customizado
+                        />
+                      )}
+                    </div>
                     <Button
                       type="button"
                       id="remove-region-button"
@@ -293,6 +331,17 @@ export default function SearchForm() {
                   name="variavel"
                   type="text"
                   value={variable.variavel}
+                  onChange={(e) => handleChange(e, "secondaryValues", index)}
+                />
+              </Label>
+              <Label className="flex flex-col">
+                Unidade / moeda
+                <Input
+                  id="currencyOrUnit"
+                  name="currencyOrUnit"
+                  placeholder="Ex: Reais / dólares"
+                  type="text"
+                  value={variable.currencyOrUnit}
                   onChange={(e) => handleChange(e, "secondaryValues", index)}
                 />
               </Label>
@@ -462,6 +511,7 @@ export default function SearchForm() {
               />
               {formData.dataType === "Outros" && (
                 <Input
+                  autoFocus={formData.finalidade === "Outros"}
                   required={true}
                   type="text"
                   id="customDataType"

@@ -1,6 +1,7 @@
 export type Section = "mainValues" | "secondaryValues";
 
 export type Variavel = {
+  currencyOrUnit: string;
   variavel: string;
   dataInicio: string;
   dataFim: string;
@@ -14,6 +15,7 @@ export type FormData = {
   whatsappEmail: string;
   instituicao: string;
   finalidade: string;
+  customPurpose: string;
   dataType: string;
   customDataType: string;
   obsGeral: string;

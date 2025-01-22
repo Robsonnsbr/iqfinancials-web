@@ -22,4 +22,5 @@ export const listCountries = [
   "Suíça",
   "Turquia",
   "Vietnã",
+  "Outros",
 ];

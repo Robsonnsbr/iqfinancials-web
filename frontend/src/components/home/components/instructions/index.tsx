@@ -7,7 +7,7 @@ export default function Instructions() {
       <SvgLine />
       <div className="flex flex-wrap text-white marker:text-red">
         <div className="flex w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2 order-first xl:order-none">
-          <h2 className="uppercase self-center font-poppins font-extrabold text-3xl text-center text-blue">
+          <h2 className="w-full uppercase break-words self-center font-poppins font-extrabold text-3xl text-center text-blue">
             Guia de Preenchimento do Formulário
           </h2>
         </div>

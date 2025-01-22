@@ -3,4 +3,5 @@ export const listPurpose = [
   "Consultoria",
   "Investimentos",
   "Gestão Financeira",
+  "Outros",
 ];
