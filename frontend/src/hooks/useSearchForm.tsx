@@ -266,7 +266,7 @@ export function useSearchForm() {
 
     try {
       const isValid = await validateRecaptcha();
-      if (isValid) {
+      if (!isValid) {
         setEmailSentError({
           error: true,
           msg: "Falha na validação do reCAPTCHA.",
