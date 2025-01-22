@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { validateRecaptcha } from "@services/validateRecaptcha";
-import { FormData, Section } from "src/types/formType";
+import { FormData, Section, Variavel } from "src/types/formType";
 import { listCountries, listPurpose } from "@data/index";
 
 export function useSearchForm() {
@@ -36,6 +36,7 @@ export function useSearchForm() {
     mainValues: [
       {
         currencyOrUnit: "",
+        outrosRegiao: "",
         variavel: "",
         dataInicio: "",
         dataFim: "",
@@ -82,6 +83,18 @@ export function useSearchForm() {
     }));
   };
 
+  const prepareDataForSubmission = (data: FormData): FormData => {
+    return {
+      ...data,
+      mainValues: data.mainValues.map((item: Variavel) => ({
+        ...item,
+        regioes: item.regioes.map((regiao: string) =>
+          regiao === "Outros" && item.outrosRegiao ? item.outrosRegiao : regiao
+        ),
+      })),
+    };
+  };
+
   const handleChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -96,6 +109,23 @@ export function useSearchForm() {
       if (section && index !== undefined) {
         // Verifica se é uma região ou um campo regular dentro da seção
         if (name === "regiao" && regionIndex !== undefined) {
+          // Se a região for "Outros", não apagamos o valor customizado
+          if (value === "Outros") {
+            return {
+              ...prevData,
+              [section]: prevData[section].map((item, idx) =>
+                idx === index
+                  ? {
+                      ...item,
+                      regioes: item.regioes.map((regiao, rIdx) =>
+                        rIdx === regionIndex ? "Outros" : regiao
+                      ),
+                    }
+                  : item
+              ),
+            };
+          }
+
           const updatedRegioes = prevData[section][index].regioes.map(
             (regiao, rIdx) => (rIdx === regionIndex ? value : regiao)
           );
@@ -104,6 +134,22 @@ export function useSearchForm() {
             ...prevData,
             [section]: prevData[section].map((item, idx) =>
               idx === index ? { ...item, regioes: updatedRegioes } : item
+            ),
+          };
+        } else if (name === "outrosRegiao" && regionIndex !== undefined) {
+          // Atualiza o valor do campo personalizado quando 'Outros' é selecionado
+          return {
+            ...prevData,
+            [section]: prevData[section].map((item, idx) =>
+              idx === index
+                ? {
+                    ...item,
+                    regioes: item.regioes.map((regiao, rIdx) =>
+                      rIdx === regionIndex ? "Outros" : regiao
+                    ),
+                    outrosRegiao: value, // Armazena o valor personalizado
+                  }
+                : item
             ),
           };
         } else {
@@ -183,6 +229,7 @@ export function useSearchForm() {
       mainValues: [
         {
           currencyOrUnit: "",
+          outrosRegiao: "",
           variavel: "",
           dataInicio: "",
           dataFim: "",
@@ -208,6 +255,8 @@ export function useSearchForm() {
     setIsSubmitting(true);
     setOpenModal(true);
 
+    const preparedData: FormData = prepareDataForSubmission(formData);
+
     const validationError = validateForm();
     if (validationError) {
       setEmailSentError({ error: true, msg: validationError });
@@ -225,11 +274,10 @@ export function useSearchForm() {
         setIsSubmitting(false);
         return;
       }
-
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formData, subject: "Pesquisa" }),
+        body: JSON.stringify({ formData: preparedData, subject: "Pesquisa" }),
       });
 
       if (res.ok) {
@@ -237,7 +285,7 @@ export function useSearchForm() {
       } else {
         setEmailSentError({ error: true, msg: "Falha ao enviar o email!" });
       }
-      resetFormData();
+      // resetFormData();
     } catch (error) {
       setEmailSentError({
         error: true,

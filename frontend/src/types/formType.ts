@@ -6,6 +6,7 @@ export type Variavel = {
   dataInicio: string;
   dataFim: string;
   regioes: string[];
+  outrosRegiao?: string;
   justificativa: string;
   frequencia: string;
 };

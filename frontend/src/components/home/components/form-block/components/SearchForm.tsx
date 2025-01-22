@@ -244,18 +244,19 @@ export default function SearchForm() {
                           handleChange(e, "mainValues", index, regionIndex)
                         }
                       />
-                      {/* Verifica se o valor da região selecionada é "Outros" */}
                       {regiao === "Outros" && (
                         <Input
                           required
                           type="text"
+                          name="outrosRegiao" // Nome para capturar o valor do input personalizado
                           placeholder="Ex: América Latina"
                           onChange={(e) =>
                             handleChange(e, "mainValues", index, regionIndex)
-                          } // Passa o índice para indicar que é um input customizado
+                          }
                         />
                       )}
                     </div>
+
                     <Button
                       type="button"
                       id="remove-region-button"
