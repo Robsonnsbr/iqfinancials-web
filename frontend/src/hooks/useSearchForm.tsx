@@ -47,21 +47,27 @@ export function useSearchForm() {
     secondaryValues: [],
   });
 
+  // useEffect para carregar os dados do localStorage no cliente
   useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
-
-  useEffect(() => {
-    const savedData = localStorage.getItem("formData");
-    if (savedData) {
-      try {
-        const parsedData = JSON.parse(savedData);
-        setFormData(parsedData);
-      } catch (error) {
-        console.error("Erro ao parsear os dados do localStorage:", error);
+    if (typeof window !== "undefined") {
+      const savedData = localStorage.getItem("formData");
+      if (savedData) {
+        try {
+          const parsedData = JSON.parse(savedData);
+          setFormData(parsedData);
+        } catch (error) {
+          console.error("Erro ao parsear os dados do localStorage:", error);
+        }
       }
     }
   }, []);
+
+  // useEffect para salvar os dados no localStorage quando o formData muda
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("formData", JSON.stringify(formData));
+    }
+  }, [formData]);
 
   const updateSection = (
     section: Section,
@@ -85,29 +91,33 @@ export function useSearchForm() {
     regionIndex?: number
   ) => {
     const { name, value } = event.target;
-    console.log(event.target.value);
+
     setFormData((prevData) => {
-      // console.log(prevData);
-      if (section && index !== undefined && regionIndex !== undefined) {
-        if (name === "regiao") {
+      if (section && index !== undefined) {
+        // Verifica se é uma região ou um campo regular dentro da seção
+        if (name === "regiao" && regionIndex !== undefined) {
           const updatedRegioes = prevData[section][index].regioes.map(
             (regiao, rIdx) => (rIdx === regionIndex ? value : regiao)
           );
+
           return {
             ...prevData,
             [section]: prevData[section].map((item, idx) =>
               idx === index ? { ...item, regioes: updatedRegioes } : item
             ),
           };
+        } else {
+          // Atualiza outros campos da seção
+          return {
+            ...prevData,
+            [section]: prevData[section].map((item, idx) =>
+              idx === index ? { ...item, [name]: value } : item
+            ),
+          };
         }
-        return {
-          ...prevData,
-          [section]: prevData[section].map((item, idx) =>
-            idx === index ? { ...item, [name]: value } : item
-          ),
-        };
       }
 
+      // Atualiza campos fora de seções específicas
       return {
         ...prevData,
         [name]: value,
@@ -207,7 +217,7 @@ export function useSearchForm() {
 
     try {
       const isValid = await validateRecaptcha();
-      if (!isValid) {
+      if (isValid) {
         setEmailSentError({
           error: true,
           msg: "Falha na validação do reCAPTCHA.",
