@@ -11,6 +11,7 @@ export const EmailTemplate = ({ formData }: Readonly<EmailTemplateProps>) => {
     whatsappEmail,
     instituicao,
     finalidade,
+    customPurpose,
     dataType,
     customDataType,
     obsGeral,
@@ -28,6 +29,7 @@ export const EmailTemplate = ({ formData }: Readonly<EmailTemplateProps>) => {
         <thead>
           <tr>
             <th className={tableStyles}>Variável</th>
+            <th className={tableStyles}>Unidade ou Moeda</th>
             <th className={tableStyles}>Data de Início</th>
             <th className={tableStyles}>Data de Fim</th>
             <th className={tableStyles}>Regiões</th>
@@ -39,6 +41,7 @@ export const EmailTemplate = ({ formData }: Readonly<EmailTemplateProps>) => {
           {variaveis.map((variavel, index) => (
             <tr key={index}>
               <td className={rowStyles}>{variavel.variavel}</td>
+              <td className={rowStyles}>{variavel.currencyOrUnit}</td>
               <td className={rowStyles}>{variavel.dataInicio}</td>
               <td className={rowStyles}>{variavel.dataFim}</td>
               <td className={rowStyles}>{variavel.regioes.join(", ")}</td>
@@ -70,7 +73,11 @@ export const EmailTemplate = ({ formData }: Readonly<EmailTemplateProps>) => {
           </tr>
           <tr>
             <td className={`${rowStyles} font-semibold`}>Finalidade:</td>
-            <td className={rowStyles}>{finalidade}</td>
+            <td className={rowStyles}>
+              {finalidade.toLowerCase() !== "outros"
+                ? finalidade
+                : customPurpose}
+            </td>
           </tr>
           <tr>
             <td className={`${rowStyles} font-semibold`}>

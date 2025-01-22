@@ -3,6 +3,7 @@ export const dataTableTest = {
   whatsappEmail: "carlos@empresa.com",
   instituicao: "GlobalTech S.A.",
   finalidade: "Pesquisa de Mercado",
+  customPurpose: "outra finalidade (customPurpose)",
   dataType: "Dados Completos",
   customDataType: "Dados de Marketing e Vendas",
   obsGeral: "A pesquisa abrange diversas regiões com foco em novos mercados.",
@@ -10,6 +11,7 @@ export const dataTableTest = {
   mainValues: [
     {
       variavel: "Crescimento de Mercado",
+      currencyOrUnit: "Real",
       dataInicio: "2025-01-01",
       dataFim: "2025-12-31",
       regioes: [
@@ -29,6 +31,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Análise de Concorrência",
+      currencyOrUnit: "Real",
       dataInicio: "2025-01-01",
       dataFim: "2025-12-31",
       regioes: ["Alemanha", "França", "Reino Unido", "Polônia"],
@@ -38,6 +41,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Comportamento do Consumidor",
+      currencyOrUnit: "Real",
       dataInicio: "2025-03-01",
       dataFim: "2025-06-30",
       regioes: ["Espanha", "Portugal", "França"],
@@ -47,6 +51,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Impacto Econômico Global",
+      currencyOrUnit: "Dólar",
       dataInicio: "2025-02-01",
       dataFim: "2025-06-30",
       regioes: ["Estados Unidos", "Canadá", "México", "Brasil", "Colômbia"],
@@ -58,6 +63,7 @@ export const dataTableTest = {
   secondaryValues: [
     {
       variavel: "Tendências de Inovação",
+      currencyOrUnit: "Dollar",
       dataInicio: "2025-01-01",
       dataFim: "2025-12-31",
       regioes: ["China", "Japão", "Coreia do Sul", "Índia", "Indonésia"],
@@ -67,6 +73,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Infraestrutura Digital",
+      currencyOrUnit: "Real",
       dataInicio: "2025-03-01",
       dataFim: "2025-06-30",
       regioes: ["Itália", "França", "Alemanha", "Reino Unido"],
@@ -76,6 +83,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Mercado de Consumo",
+      currencyOrUnit: "Real",
       dataInicio: "2025-07-01",
       dataFim: "2025-12-31",
       regioes: [
@@ -91,6 +99,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Sustentabilidade Empresarial",
+      currencyOrUnit: "Real",
       dataInicio: "2025-01-01",
       dataFim: "2025-12-31",
       regioes: ["Estados Unidos", "Canadá", "México", "Brasil"],
@@ -100,6 +109,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Desafios de Supply Chain",
+      currencyOrUnit: "Real",
       dataInicio: "2025-05-01",
       dataFim: "2025-11-30",
       regioes: ["Suíça", "Áustria", "Alemanha", "França", "Holanda"],
@@ -109,6 +119,7 @@ export const dataTableTest = {
     },
     {
       variavel: "Expansão do Mercado",
+      currencyOrUnit: "Real",
       dataInicio: "2025-06-01",
       dataFim: "2025-09-30",
       regioes: [
