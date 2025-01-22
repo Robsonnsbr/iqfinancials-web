@@ -1,26 +1,22 @@
 import { useState, useMemo, useEffect } from "react";
-
-// import ReactDOMServer from "react-dom/server";
 import { validateRecaptcha } from "@services/validateRecaptcha";
-
-// import { EmailTemplate } from "@components/common/email-templates/EmailTemplate";
 import { FormData, Section } from "src/types/formType";
 import { listCountries, listPurpose } from "@data/index";
 
 export function useSearchForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const [emailSentError, setEmailSentError] = useState<{
     error: boolean;
     msg?: string;
   }>({ error: false });
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  // Memorizar listas ordenadas para evitar reprocessamento em cada renderização
-  const sortedListCountries = useMemo(
-    () => Array.from(new Set(listCountries)).sort((a, b) => a.localeCompare(b)),
-    []
-  );
+  const sortedListCountries = useMemo(() => {
+    return [
+      ...new Set(listCountries.filter((country) => country !== "Outros")),
+      "Outros",
+    ];
+  }, []);
 
   const sortedListPurpose = useMemo(
     () => [...listPurpose].sort((a, b) => a.localeCompare(b)),
@@ -33,11 +29,13 @@ export function useSearchForm() {
     whatsappEmail: "",
     instituicao: "",
     finalidade: "",
+    customPurpose: "",
     dataType: "",
     customDataType: "",
     urgente: false,
     mainValues: [
       {
+        currencyOrUnit: "",
         variavel: "",
         dataInicio: "",
         dataFim: "",
@@ -49,12 +47,10 @@ export function useSearchForm() {
     secondaryValues: [],
   });
 
-  //Salva os dados no localStorage
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData]);
 
-  // Carregar os dados do localStorage
   useEffect(() => {
     const savedData = localStorage.getItem("formData");
     if (savedData) {
@@ -88,46 +84,33 @@ export function useSearchForm() {
     index?: number,
     regionIndex?: number
   ) => {
-    const { name, value, type } = event.target;
-    const isCheckbox =
-      event.target instanceof HTMLInputElement && type === "checkbox";
-
+    const { name, value } = event.target;
+    console.log(event.target.value);
     setFormData((prevData) => {
-      if (section && index !== undefined) {
-        if (name === "regiao" && regionIndex !== undefined) {
+      // console.log(prevData);
+      if (section && index !== undefined && regionIndex !== undefined) {
+        if (name === "regiao") {
+          const updatedRegioes = prevData[section][index].regioes.map(
+            (regiao, rIdx) => (rIdx === regionIndex ? value : regiao)
+          );
           return {
             ...prevData,
             [section]: prevData[section].map((item, idx) =>
-              idx === index
-                ? {
-                    ...item,
-                    regioes: item.regioes.map((regiao, rIdx) =>
-                      rIdx === regionIndex ? value : regiao
-                    ),
-                  }
-                : item
+              idx === index ? { ...item, regioes: updatedRegioes } : item
             ),
           };
         }
-
         return {
           ...prevData,
           [section]: prevData[section].map((item, idx) =>
-            idx === index
-              ? {
-                  ...item,
-                  [name]: isCheckbox
-                    ? (event.target as HTMLInputElement).checked
-                    : value,
-                }
-              : item
+            idx === index ? { ...item, [name]: value } : item
           ),
         };
       }
 
       return {
         ...prevData,
-        [name]: isCheckbox ? (event.target as HTMLInputElement).checked : value,
+        [name]: value,
       };
     });
   };
@@ -167,16 +150,13 @@ export function useSearchForm() {
   };
 
   const handleRemoveVariable = (section: Section, index: number) => {
-    setFormData((prevData) => {
-      if (section === "mainValues" && prevData["mainValues"].length <= 1) {
-        return prevData;
-      }
-
-      return {
-        ...prevData,
-        [section]: prevData[section].filter((_, idx) => idx !== index),
-      };
-    });
+    if (section === "mainValues" && formData["mainValues"].length <= 1) {
+      return;
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [section]: prevData[section].filter((_, idx) => idx !== index),
+    }));
   };
 
   const resetFormData = () => {
@@ -186,11 +166,13 @@ export function useSearchForm() {
       whatsappEmail: "",
       instituicao: "",
       finalidade: "",
+      customPurpose: "",
       dataType: "",
       customDataType: "",
       urgente: false,
       mainValues: [
         {
+          currencyOrUnit: "",
           variavel: "",
           dataInicio: "",
           dataFim: "",
@@ -203,10 +185,25 @@ export function useSearchForm() {
     });
   };
 
+  const validateForm = () => {
+    // Implementar validações adicionais se necessário, por exemplo, campos obrigatórios
+    if (!formData.nomeCompleto || !formData.whatsappEmail) {
+      return "Campos obrigatórios não preenchidos!";
+    }
+    return null;
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
     setOpenModal(true);
+
+    const validationError = validateForm();
+    if (validationError) {
+      setEmailSentError({ error: true, msg: validationError });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const isValid = await validateRecaptcha();
@@ -215,19 +212,14 @@ export function useSearchForm() {
           error: true,
           msg: "Falha na validação do reCAPTCHA.",
         });
+        setIsSubmitting(false);
         return;
       }
 
-      // Envia o formData diretamente para o backend
       const res = await fetch("/api/send-email", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          formData,
-          subject: "Pesquisa",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formData, subject: "Pesquisa" }),
       });
 
       if (res.ok) {
@@ -235,13 +227,11 @@ export function useSearchForm() {
       } else {
         setEmailSentError({ error: true, msg: "Falha ao enviar o email!" });
       }
-
       resetFormData();
-    } catch (error: unknown) {
+    } catch (error) {
       setEmailSentError({
         error: true,
-        msg: `Ocorreu um erro inesperado. Por favor, entre em contato 
-        com nosso suporte pelo e-mail: financialsiq@gmail.com`,
+        msg: `Ocorreu um erro inesperado. Por favor, entre em contato com nosso suporte pelo e-mail: financialsiq@gmail.com`,
       });
       console.error(error);
     } finally {
