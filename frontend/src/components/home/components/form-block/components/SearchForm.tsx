@@ -183,7 +183,7 @@ export default function SearchForm() {
                 <Input
                   id="currencyOrUnit"
                   name="currencyOrUnit"
-                  placeholder="Ex: Reais / dólares"
+                  placeholder="Ex: Real / dólar"
                   type="text"
                   value={variable.currencyOrUnit}
                   onChange={(e) => handleChange(e, "mainValues", index)}
@@ -246,6 +246,7 @@ export default function SearchForm() {
                       />
                       {regiao === "Outros" && (
                         <Input
+                          autoFocus
                           required
                           type="text"
                           name="outrosRegiao" // Nome para capturar o valor do input personalizado
@@ -340,7 +341,7 @@ export default function SearchForm() {
                 <Input
                   id="currencyOrUnit"
                   name="currencyOrUnit"
-                  placeholder="Ex: Reais / dólares"
+                  placeholder="Ex: Real / dólar"
                   type="text"
                   value={variable.currencyOrUnit}
                   onChange={(e) => handleChange(e, "secondaryValues", index)}
@@ -393,21 +394,40 @@ export default function SearchForm() {
                 Região
                 {variable.regioes.map((regiao, regionIndex) => (
                   <div key={regionIndex} className="flex mb-2 items-center">
-                    <Select
-                      id="regiao"
-                      name="regiao"
-                      value={regiao}
-                      options={sortedListCountries}
-                      onChange={(e) =>
-                        handleChange(e, "secondaryValues", index, regionIndex)
-                      }
-                    />
+                    <div className="flex flex-col gap-2">
+                      <Select
+                        id="regiao"
+                        name="regiao"
+                        value={regiao}
+                        options={sortedListCountries}
+                        onChange={(e) =>
+                          handleChange(e, "secondaryValues", index, regionIndex)
+                        }
+                      />
+                      {regiao === "Outros" && (
+                        <Input
+                          autoFocus
+                          required
+                          type="text"
+                          name="outrosRegiao" // Nome para capturar o valor do input personalizado
+                          placeholder="Ex: América Latina"
+                          onChange={(e) =>
+                            handleChange(
+                              e,
+                              "secondaryValues",
+                              index,
+                              regionIndex
+                            )
+                          }
+                        />
+                      )}
+                    </div>
                     <Button
                       type="button"
                       id="remove-region-button-2"
                       title="remover região"
                       aria-label="remove region button"
-                      className="text-xs py-1 px-2 m-1"
+                      className="text-xs py-1 px-2 m-1 self-center"
                       onClick={() =>
                         handleRemoveRegion(
                           "secondaryValues",
@@ -512,7 +532,7 @@ export default function SearchForm() {
               />
               {formData.dataType === "Outros" && (
                 <Input
-                  autoFocus={formData.finalidade === "Outros"}
+                  autoFocus
                   required={true}
                   type="text"
                   id="customDataType"
