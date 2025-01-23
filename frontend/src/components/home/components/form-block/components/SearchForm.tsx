@@ -194,7 +194,7 @@ export default function SearchForm() {
                 <span className="text-center">Horizonte temporal</span>
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <div className="flex flex-wrap gap-2">
-                    <Label className="flex flex-col bg-transparent p-0">
+                    <Label className="flex flex-col !bg-transparent !p-0">
                       <Input
                         id="data-inicio"
                         name="dataInicio"
@@ -205,19 +205,19 @@ export default function SearchForm() {
                       />
                       Data base
                     </Label>
-                    <Label className="flex flex-col bg-transparent p-0">
+                    <Label className="flex flex-col !bg-transparent !p-0">
                       <Input
                         type="date"
                         id="data-fim"
                         name="dataFim"
-                        className="min-w-fit"
+                        className="!min-w-fit"
                         value={variable.dataFim}
                         onChange={(e) => handleChange(e, "mainValues", index)}
                       />
                       Data fim
                     </Label>
                   </div>
-                  <Label className="flex flex-col bg-transparent p-0">
+                  <Label className="flex flex-col !bg-transparent !p-0">
                     <Select
                       id="frequencia"
                       name="frequencia"
@@ -355,7 +355,7 @@ export default function SearchForm() {
               <div className="flex flex-col bg-white/20 h-fit p-2 rounded-md">
                 <span className="text-center">Horizonte temporal</span>
                 <div className="flex flex-col gap-2 sm:flex-row">
-                  <Label className="flex flex-col bg-transparent p-0">
+                  <Label className="flex flex-col !bg-transparent !p-0">
                     <Input
                       id="data-inicio"
                       name="dataInicio"
@@ -368,7 +368,7 @@ export default function SearchForm() {
                     />
                     Data base
                   </Label>
-                  <Label className="flex flex-col bg-transparent p-0">
+                  <Label className="flex flex-col !bg-transparent !p-0">
                     <Input
                       type="date"
                       id="data-fim"
@@ -381,7 +381,7 @@ export default function SearchForm() {
                     />
                     Data fim
                   </Label>
-                  <Label className="flex flex-col bg-transparent p-0">
+                  <Label className="flex flex-col !bg-transparent !p-0">
                     <Select
                       id="frequencia"
                       name="frequencia"
