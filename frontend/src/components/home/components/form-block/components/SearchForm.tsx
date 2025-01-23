@@ -563,7 +563,7 @@ export default function SearchForm() {
                 type="checkbox"
                 id="urgente"
                 name="urgente"
-                className="cursor-pointer size-4 min-h-0 min-w-0"
+                className="cursor-pointer size-4 !min-h-0 !min-w-0"
                 checked={formData.urgente}
                 onChange={(e) => handleChange(e)}
               />
