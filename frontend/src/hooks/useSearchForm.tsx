@@ -36,6 +36,7 @@ export function useSearchForm() {
     mainValues: [
       {
         currencyOrUnit: "",
+        //TODO: outrosRegiao não está sendo salvo no localStorage, porém o valor selecionado em região e salvo só não parece depois do F5
         outrosRegiao: "",
         variavel: "",
         dataInicio: "",

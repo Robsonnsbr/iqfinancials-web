@@ -1,1 +1,6 @@
-export const listDataType = ["Excel", "DTA", "PYTHON", "Outros"];
+export const listDataType = [
+  "Excel(.xlsx)",
+  "Confirm(.dta)",
+  "PYTHON(.csv)",
+  "Outros",
+];

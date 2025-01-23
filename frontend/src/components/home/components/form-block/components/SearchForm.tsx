@@ -530,8 +530,10 @@ export default function SearchForm() {
           />
           <div className="contents sm:flex gap-2">
             <Label className="flex flex-wrap items-center gap-2">
-              Tipo
+              Tipo/Integração
               <Select
+                title="Selecione um tipo ou uma integração"
+                aria-label="selecionar tipo ou integração"
                 id="dataType"
                 name="dataType"
                 className="!min-w-0"
