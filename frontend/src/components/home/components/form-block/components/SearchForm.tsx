@@ -165,9 +165,9 @@ export default function SearchForm() {
           {formData.mainValues.map((variable, index) => (
             <div
               key={index}
-              className="flex flex-wrap justify-between p-3 bg-white/20 gap-2 border-2 border-green rounded-md"
+              className="relative flex flex-wrap  p-2 bg-white/20 gap-2 border-2 border-green rounded-md"
             >
-              <Label className="flex flex-col">
+              <Label className="flex flex-col ">
                 Nome da variável
                 <Input
                   id="variavel"
@@ -178,7 +178,7 @@ export default function SearchForm() {
                   onChange={(e) => handleChange(e, "mainValues", index)}
                 />
               </Label>
-              <Label className="flex flex-col">
+              <Label className="flex flex-col ">
                 Unidade / moeda
                 <Input
                   id="currencyOrUnit"
@@ -190,37 +190,40 @@ export default function SearchForm() {
                 />
               </Label>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col bg-white/20 h-fit p-2 rounded-md">
                 <span className="text-center">Horizonte temporal</span>
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <div className="flex flex-wrap gap-2">
-                    <Label className="flex flex-col">
+                    <Label className="flex flex-col bg-transparent p-0">
                       <Input
                         id="data-inicio"
                         name="dataInicio"
                         type="date"
+                        className="min-w-fit"
                         value={variable.dataInicio}
                         onChange={(e) => handleChange(e, "mainValues", index)}
                       />
                       Data base
                     </Label>
-                    <Label className="flex flex-col">
+                    <Label className="flex flex-col bg-transparent p-0">
                       <Input
                         type="date"
                         id="data-fim"
                         name="dataFim"
+                        className="min-w-fit"
                         value={variable.dataFim}
                         onChange={(e) => handleChange(e, "mainValues", index)}
                       />
                       Data fim
                     </Label>
                   </div>
-                  <Label className="flex flex-col">
+                  <Label className="flex flex-col bg-transparent p-0">
                     <Select
                       id="frequencia"
                       name="frequencia"
                       value={variable.frequencia}
                       options={listFrequency}
+                      className="min-w-fit"
                       onChange={(e) => handleChange(e, "mainValues", index)}
                     />
                     <span className="order-first sm:order-none">
@@ -230,7 +233,7 @@ export default function SearchForm() {
                 </div>
               </div>
 
-              <Label className="flex flex-col">
+              <Label className="flex flex-col ">
                 Região
                 {variable.regioes.map((regiao, regionIndex) => (
                   <div key={regionIndex} className="flex mb-2 items-center">
@@ -284,7 +287,7 @@ export default function SearchForm() {
                 </Button>
               </Label>
 
-              <Label className="flex flex-col">
+              <Label className="flex flex-col ">
                 Justificativa da variável
                 <TextArea
                   id="justificativa"
@@ -300,7 +303,7 @@ export default function SearchForm() {
                 id="remove-value-button"
                 title="remover região"
                 aria-label="remove value button"
-                className="self-end md:self-auto mt-2"
+                className="absolute bottom-2 right-2  mt-2"
                 onClick={() => handleRemoveVariable("mainValues", index)}
               >
                 <BsTrash3Fill className="size-5" />
@@ -324,13 +327,14 @@ export default function SearchForm() {
           {formData.secondaryValues.map((variable, index) => (
             <div
               key={index}
-              className="flex flex-wrap justify-between p-3 bg-white/20 border-2 border-blue rounded-md"
+              className="relative flex flex-wrap  p-2 bg-white/20 gap-2 border-2 border-green rounded-md"
             >
               <Label className="flex flex-col">
                 Nome da variável
                 <Input
                   id="variavel"
                   name="variavel"
+                  placeholder="Ex: Receita anual de empresas aberta na bolsa"
                   type="text"
                   value={variable.variavel}
                   onChange={(e) => handleChange(e, "secondaryValues", index)}
@@ -348,14 +352,15 @@ export default function SearchForm() {
                 />
               </Label>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col bg-white/20 h-fit p-2 rounded-md">
                 <span className="text-center">Horizonte temporal</span>
                 <div className="flex flex-col gap-2 sm:flex-row">
-                  <Label className="flex flex-col">
+                  <Label className="flex flex-col bg-transparent p-0">
                     <Input
                       id="data-inicio"
                       name="dataInicio"
                       type="date"
+                      className="min-w-fit"
                       value={variable.dataInicio}
                       onChange={(e) =>
                         handleChange(e, "secondaryValues", index)
@@ -363,11 +368,12 @@ export default function SearchForm() {
                     />
                     Data base
                   </Label>
-                  <Label className="flex flex-col">
+                  <Label className="flex flex-col bg-transparent p-0">
                     <Input
                       type="date"
                       id="data-fim"
                       name="dataFim"
+                      className="min-w-fit"
                       value={variable.dataFim}
                       onChange={(e) =>
                         handleChange(e, "secondaryValues", index)
@@ -375,10 +381,11 @@ export default function SearchForm() {
                     />
                     Data fim
                   </Label>
-                  <Label className="flex flex-col">
+                  <Label className="flex flex-col bg-transparent p-0">
                     <Select
                       id="frequencia"
                       name="frequencia"
+                      className="min-w-fit"
                       value={variable.frequencia}
                       options={listFrequency}
                       onChange={(e) =>
@@ -453,10 +460,11 @@ export default function SearchForm() {
               </Label>
 
               <Label className="flex flex-col">
-                Obs: variável
+                Justificativa da variável
                 <TextArea
                   id="justificativa"
                   name="justificativa"
+                  placeholder="observações ou detalhes da variável"
                   value={variable.justificativa}
                   onChange={(e) => handleChange(e, "secondaryValues", index)}
                 />
@@ -467,7 +475,7 @@ export default function SearchForm() {
                 id="remove-value-button-2"
                 title="remover variável"
                 aria-label="remove value button"
-                className="self-end md:self-auto"
+                className="absolute bottom-2 right-2  mt-2"
                 onClick={() => handleRemoveVariable("secondaryValues", index)}
               >
                 <BsTrash3Fill className="size-5" />
@@ -526,6 +534,7 @@ export default function SearchForm() {
               <Select
                 id="dataType"
                 name="dataType"
+                className="!min-w-0"
                 options={listDataType}
                 value={formData.dataType}
                 onChange={handleChange}
@@ -537,6 +546,7 @@ export default function SearchForm() {
                   type="text"
                   id="customDataType"
                   name="customDataType"
+                  placeholder="Ex: .xls"
                   value={formData.customDataType}
                   onChange={handleChange}
                 />
@@ -545,7 +555,7 @@ export default function SearchForm() {
 
             <Label
               title="marcar como urgente"
-              className="uppercase hover:bg-black/60 border-2 border-transparent active:border-red flex items-center gap-2 text-red font-semibold bg-black/50 p-2 rounded-md cursor-pointer select-none"
+              className="min-h-14 uppercase hover:bg-black/60 border-2 border-transparent active:border-red flex items-center gap-2 text-red font-semibold !bg-black/50 rounded-md cursor-pointer select-none"
             >
               urgente
               <Input
@@ -553,7 +563,7 @@ export default function SearchForm() {
                 type="checkbox"
                 id="urgente"
                 name="urgente"
-                className="cursor-pointer size-4"
+                className="cursor-pointer size-4 min-h-0 min-w-0"
                 checked={formData.urgente}
                 onChange={(e) => handleChange(e)}
               />

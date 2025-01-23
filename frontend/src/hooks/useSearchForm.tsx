@@ -103,13 +103,17 @@ export function useSearchForm() {
     index?: number,
     regionIndex?: number
   ) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
+    const isCheckbox =
+      event.target instanceof HTMLInputElement && type === "checkbox";
+
+    console.log(name, value);
 
     setFormData((prevData) => {
       if (section && index !== undefined) {
-        // Verifica se é uma região ou um campo regular dentro da seção
+        // Atualiza campos dentro de uma seção específica
         if (name === "regiao" && regionIndex !== undefined) {
-          // Se a região for "Outros", não apagamos o valor customizado
+          // Se "Outros" for selecionado, preserva o valor customizado
           if (value === "Outros") {
             return {
               ...prevData,
@@ -126,6 +130,7 @@ export function useSearchForm() {
             };
           }
 
+          // Atualiza a lista de regiões
           const updatedRegioes = prevData[section][index].regioes.map(
             (regiao, rIdx) => (rIdx === regionIndex ? value : regiao)
           );
@@ -136,8 +141,10 @@ export function useSearchForm() {
               idx === index ? { ...item, regioes: updatedRegioes } : item
             ),
           };
-        } else if (name === "outrosRegiao" && regionIndex !== undefined) {
-          // Atualiza o valor do campo personalizado quando 'Outros' é selecionado
+        }
+
+        if (name === "outrosRegiao" && regionIndex !== undefined) {
+          // Atualiza o campo personalizado de "Outros"
           return {
             ...prevData,
             [section]: prevData[section].map((item, idx) =>
@@ -147,26 +154,26 @@ export function useSearchForm() {
                     regioes: item.regioes.map((regiao, rIdx) =>
                       rIdx === regionIndex ? "Outros" : regiao
                     ),
-                    outrosRegiao: value, // Armazena o valor personalizado
+                    outrosRegiao: value, // Define o valor personalizado
                   }
                 : item
             ),
           };
-        } else {
-          // Atualiza outros campos da seção
-          return {
-            ...prevData,
-            [section]: prevData[section].map((item, idx) =>
-              idx === index ? { ...item, [name]: value } : item
-            ),
-          };
         }
+
+        // Atualiza outros campos dentro da seção
+        return {
+          ...prevData,
+          [section]: prevData[section].map((item, idx) =>
+            idx === index ? { ...item, [name]: value } : item
+          ),
+        };
       }
 
       // Atualiza campos fora de seções específicas
       return {
         ...prevData,
-        [name]: value,
+        [name]: isCheckbox ? (event.target as HTMLInputElement).checked : value,
       };
     });
   };
