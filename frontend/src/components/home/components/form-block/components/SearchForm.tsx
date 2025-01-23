@@ -548,7 +548,7 @@ export default function SearchForm() {
                   type="text"
                   id="customDataType"
                   name="customDataType"
-                  placeholder="Ex: .xls"
+                  placeholder="Ex: PYTHON(.json)"
                   value={formData.customDataType}
                   onChange={handleChange}
                 />

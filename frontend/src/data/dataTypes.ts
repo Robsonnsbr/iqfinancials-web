@@ -1,6 +1,6 @@
 export const listDataType = [
   "EXCEL(.xlsx)",
-  "CONFIRM(.dta)",
+  "STATA(.dta)",
   "PYTHON(.csv)",
   "Outros",
 ];
