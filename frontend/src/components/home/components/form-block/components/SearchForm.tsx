@@ -571,7 +571,7 @@ export default function SearchForm() {
 
             <Button
               type="submit"
-              className="py-2 px-4"
+              className="py-2 px-4 self-center"
               id="submit-form-button"
               title="Enviar formulário"
               aria-label="submit form button"
