@@ -6,8 +6,8 @@ export default function Insights() {
     <ContentContainer className="flex flex-col py-12 overflow-hidden  3xl:scale-105">
       <SvgLine />
       <div className="flex flex-wrap text-white marker:text-red">
-        <div className="w-full lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
-          <h3 className="uppercase  break-words self-center font-poppins font-extrabold text-3xl text-center text-blue">
+        <div className="self-center lg:w-1/2 xl:w-1/4 py-4 lg:px-2">
+          <h3 className="uppercase break-words font-poppins font-extrabold text-3xl text-center text-blue">
             Insights Estratégicos e Personalizados
           </h3>
         </div>
