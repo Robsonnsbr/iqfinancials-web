@@ -1,18 +1,9 @@
 import Main from "@components/common/main";
 import ContentContainer from "@components/common/containers/ContentContainer";
 import Footer from "@components/common/footer";
-import { ParsedUrlQuery } from "querystring";
 
-// Definindo a interface específica dos parâmetros da rota dinâmica
-interface IParamsDynamicPage extends ParsedUrlQuery {
-  slug: string;
-}
-
-interface DynamicPageProps {
-  params: IParamsDynamicPage;
-}
-
-export default function DynamicPage({ params }: DynamicPageProps) {
+// Next.js passa automaticamente os parâmetros das rotas dinâmicas
+export default function DynamicPage({ params }: { params: { slug: string } }) {
   const { slug } = params; // Captura o slug da URL
 
   return (
