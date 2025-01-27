@@ -1,18 +1,22 @@
-import React from "react";
 import Main from "@components/common/main";
 import ContentContainer from "@components/common/containers/ContentContainer";
-import Header from "@components/common/header";
 import Footer from "@components/common/footer";
 
-function About() {
+//TODO: corrigir interface (achar o tipo certo do params)
+interface IParamsDynamicPage {
+  params: { slug: string };
+}
+
+export default function DynamicPage({ params }: IParamsDynamicPage) {
+  const { slug } = params; // Captura o slug da URL
+
   return (
     <>
-      <Header />
       <Main>
-        <section className="global-section" id="section-about">
+        <section className="global-section" id="section-dynamic">
           <ContentContainer>
             <div className="w-full h-full flex flex-col">
-              <h1 className="text-black">main-contact</h1>
+              <h1 className="text-white">Página dinâmica: {slug}</h1>
             </div>
           </ContentContainer>
         </section>
@@ -21,5 +25,3 @@ function About() {
     </>
   );
 }
-
-export default About;
