@@ -108,8 +108,6 @@ export function useSearchForm() {
     const isCheckbox =
       event.target instanceof HTMLInputElement && type === "checkbox";
 
-    console.log(name, value);
-
     setFormData((prevData) => {
       if (section && index !== undefined) {
         // Atualiza campos dentro de uma seção específica
