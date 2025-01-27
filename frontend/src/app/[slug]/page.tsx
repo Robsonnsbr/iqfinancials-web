@@ -1,13 +1,18 @@
 import Main from "@components/common/main";
 import ContentContainer from "@components/common/containers/ContentContainer";
 import Footer from "@components/common/footer";
+import { ParsedUrlQuery } from "querystring";
 
-//TODO: corrigir interface (achar o tipo certo do params)
-interface IParamsDynamicPage {
-  params: { slug: string };
+// Definindo a interface específica dos parâmetros da rota dinâmica
+interface IParamsDynamicPage extends ParsedUrlQuery {
+  slug: string;
 }
 
-export default function DynamicPage({ params }: IParamsDynamicPage) {
+interface DynamicPageProps {
+  params: IParamsDynamicPage;
+}
+
+export default function DynamicPage({ params }: DynamicPageProps) {
   const { slug } = params; // Captura o slug da URL
 
   return (
