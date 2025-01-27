@@ -57,5 +57,3 @@ export default function Home() {
     </>
   );
 }
-
-//TODO: Ajustar css global, existem cfg que não são necessárias

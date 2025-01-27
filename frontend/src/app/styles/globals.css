@@ -13,12 +13,6 @@ html {
   font-size: 16px; /* Tamanho base */
 }
 
-/* Remover padrão de borda do navegador */
-:focus {
-  outline: none; /* Remove a borda padrão ao focar */
-  box-shadow: none !important;
-}
-
 :root {
   /* Paleta de cores do projeto */
   --color-bg: #ffffff;
@@ -60,8 +54,6 @@ body {
 h1 {
   font-size: 3rem; /* 48px */
 }
-
-
 
 
 /* Limitar largura de imagens */
@@ -109,49 +101,4 @@ h1 {
     text-align: center;
   }
 
-  .border-octagonal {
-    clip-path: polygon(2% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%, 0% 2%);
-  }
-  
-
-  /* Estilos de responsividade */
-  @media (max-width: 768px) {
-    :root {
-      --header-height: 56px; /* Reduz a altura do header em telas menores */
-      --footer-height: 150px; /* Reduz a altura do footer em telas menores */
-      --font-size-base: 14px; /* Tamanho de fonte menor em telas pequenas */
-    }
-
-    .app-container {
-      padding: 8px; /* Menos espaçamento em telas menores */
-    }
-
-    .footer {
-      font-size: 14px; /* Ajusta o tamanho da fonte do footer */
-    }
-  }
-
-  /* Estilos para telas muito pequenas */
-  @media (max-width: 480px) {
-    .header {
-      height: 48px; /* Header ainda mais baixo em telas muito pequenas */
-    }
-
-    .footer {
-      min-height: 120px; /* Reduz footer para telas muito pequenas */
-    }
-
-    .main-content {
-      padding-top: 48px; /* Ajusta para o header menor */
-      padding-bottom: 120px; /* Ajusta para o footer menor */
-    }
-  }
-}
-
-/* Detecta a barra de rolagem e ajusta o layout */
-@media (min-width: 1024px) {
-  /* Quando houver uma barra de rolagem vertical, ajusta o layout */
-  .app-container {
-    max-width: calc(100% - 15px); /* Ajusta a largura do conteúdo quando a barra de rolagem estiver presente */
-  }
 }
