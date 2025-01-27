@@ -36,6 +36,11 @@ export default function Hero() {
         <ul className="list-none flex-1 min-w-[300px] max-w-[500px] text-xl w-6 space-y-4">
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
+            Ajudamos na coleta de dados para estudos acadêmicos, análises
+            financeiras e projetos profissionais.
+          </li>
+          <li className="flex items-start gap-2">
+            <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
             Dados financeiros abrangentes de mais de 200 mil empresas públicas e
             privadas, incluindo balanços patrimoniais, demonstrações de
             resultados, fluxos de caixa e indicadores financeiros.
