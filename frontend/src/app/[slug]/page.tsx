@@ -2,9 +2,13 @@ import Main from "@components/common/main";
 import ContentContainer from "@components/common/containers/ContentContainer";
 import Footer from "@components/common/footer";
 
-// Next.js passa automaticamente os parâmetros das rotas dinâmicas
-export default function DynamicPage({ params }: { params: { slug: string } }) {
-  const { slug } = params; // Captura o slug da URL
+// Função assíncrona para lidar com props
+export default async function DynamicPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params; // Aguarde a resolução do `params`
 
   return (
     <>

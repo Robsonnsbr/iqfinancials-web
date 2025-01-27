@@ -63,8 +63,7 @@ export default function Hero() {
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Integração completa com softwares como Excel, Stata, Python, entre
-            outros, facilitando suas análises.
+            Integração com Softwares de Análise.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
