@@ -85,14 +85,19 @@ export function useSearchForm() {
   };
 
   const prepareDataForSubmission = (data: FormData): FormData => {
-    return {
-      ...data,
-      mainValues: data.mainValues.map((item: Variavel) => ({
+    const processSection = (section: Section) => {
+      return data[section].map((item: Variavel) => ({
         ...item,
         regioes: item.regioes.map((regiao: string) =>
           regiao === "Outros" && item.outrosRegiao ? item.outrosRegiao : regiao
         ),
-      })),
+      }));
+    };
+
+    return {
+      ...data,
+      mainValues: processSection("mainValues"),
+      secondaryValues: processSection("secondaryValues"),
     };
   };
 
