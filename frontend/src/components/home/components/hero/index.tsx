@@ -58,22 +58,24 @@ export default function Hero() {
         <ul className="list-none flex-1 min-w-[300px] max-w-[500px] space-y-4">
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Análises de empresas comparáveis e projeções financeiras.
+            Ferramentas para análise de empresas comparáveis e projeções
+            financeiras.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Acesso a dados de mercados financeiros globais, incluindo títulos de
+            Dados abrangentes de mercados financeiros globais, como títulos de
             dívida, commodities e derivativos.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Integração com Softwares de Análise.
+            Integração com softwares como Excel, Stata, Python e outros,
+            otimizando suas análises.
           </li>
           <li className="flex items-start gap-2">
             <IoMdArrowRoundForward className="mt-2 text-red text-xl min-w-6 h-6" />
-            Recursos adaptados para diversas finalidades, como estudos
-            econométricos, cálculo de taxa de desconto, análise de múltiplos,
-            projeções de setor e avaliação de empresas.
+            Soluções adaptadas para estudos econométricos, cálculo de taxas de
+            desconto, análises de múltiplos, projeções setoriais e avaliações
+            empresariais.
           </li>
         </ul>
       </div>
