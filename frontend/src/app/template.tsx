@@ -1,16 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import { PropsWithChildren } from "react";
 
-type TemplatesProps = {
-  children: React.ReactNode;
-};
+function Template({ children }: PropsWithChildren) {
+  const initial = { y: -20, opacity: 0 };
+  const animate = { y: 0, opacity: 1 };
+  const transition = { ease: "easeInOut", duration: 0.3 };
 
-function Template({ children }: TemplatesProps) {
   return (
     <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.3 }}
+      initial={initial}
+      animate={animate}
+      transition={transition}
       id="motion-layout-wrapper-container-app"
       className="flex flex-col max-w-[1920px] overflow-y-hidden"
     >

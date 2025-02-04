@@ -9,12 +9,14 @@ import WppButton from "@components/common/button/WppButton";
 import ScrollButton from "@components/common/button/ScrollButton";
 
 export const metadata: Metadata = {
-  title: "IQ Financials",
+  title: "IQ Financials - Dados Econômicos e Financeiros",
   icons: {
     icon: "/favicon.ico",
   },
-  description: `Dados Econômicos, Financeiros e Contábeis, para acadêmicos, 
-    gestores e investidores.`,
+  description: `Dados econômicos, financeiros e contábeis confiáveis para acadêmicos, 
+    gestores e investidores tomarem decisões estratégicas com segurança.`,
+  keywords:
+    "dados financeiros, economia, contabilidade, investimentos, análise econômica, gestão financeira",
 };
 
 export default function RootLayout({
