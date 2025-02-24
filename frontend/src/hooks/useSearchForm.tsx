@@ -280,7 +280,7 @@ export function useSearchForm() {
       if (!isValid) {
         setEmailSentError({
           error: true,
-          msg: "Falha na validação do reCAPTCHA.",
+          msg: "Falha na validação do reCAPTCHA!",
         });
         setIsSubmitting(false);
         return;
